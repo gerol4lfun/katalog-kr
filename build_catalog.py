@@ -317,10 +317,10 @@ DATA = {
         },
         {
             "num": 7, "slug": "stroy-bytovki", "accent": "stroyka", "name": "Строительные бытовки",
-            "audience": "Бригада на объекте на пару месяцев или прораб, которому нужно тёплое место "
-                        "переодеться и переждать непогоду, — без роскоши, но по-честному крепко.",
-            "differ": "От «Дачных бытовок» это семейство отличает отделка ДВП вместо вагонки внутри — "
-                      "дешевле и рассчитано на рабочие будни, а не на уютный отдых.",
+            "audience": "Бригада на объекте на пару месяцев или прораб — тёплое место переодеться "
+                        "и переждать непогоду, без роскоши, но по-честному крепко.",
+            "differ": "От «Дачных бытовок» отличие — отделка ДВП вместо вагонки: дешевле и практичнее "
+                      "для рабочих будней.",
             "kit": [
                 "Деревянный каркас на брусовом основании 150×100 мм",
                 "Утепление минватой 50 мм — пол, стены, потолок",
@@ -389,9 +389,8 @@ DATA = {
             "num": 9, "slug": "bkt-usilenny", "accent": "stroyka", "name": "Блок-контейнеры Усиленный",
             "audience": "Долгая стройка или вахтовый городок, где контейнеры ставят друг на друга "
                         "в несколько этажей.",
-            "differ": "От «Блок-контейнеров Стандарт» это семейство отличает каркас и крыша, "
-                      "рассчитанные на установку в 2 этажа, — если контейнеры нужны в ряд, "
-                      "«Стандарт» обойдётся дешевле.",
+            "differ": "От «Блок-контейнеров Стандарт» отличие — каркас и крыша под 2 этажа; для ряда "
+                      "контейнеров «Стандарт» дешевле.",
             "kit": [
                 "Плоская сварная кровля из оцинкованного листа 0,8 мм (вдвое толще, чем 0,4 мм у "
                 "«Стандарта»), под гидроизоляционной мастикой — именно она держит вес второго яруса",
@@ -479,9 +478,8 @@ DATA = {
             "num": 13, "slug": "santehotsek", "accent": "san", "name": "С сантехническим отсеком",
             "audience": "Объект без центральной канализации, где нужны и жильё, и туалет с раковиной "
                         "в одном модуле.",
-            "differ": "От «Дачных с душем и туалетом» это семейство отличает то, что здесь только "
-                      "умывальник и унитаз без душевой кабины, зато металлический каркас и вдвое "
-                      "более толстое утепление — для круглогодичной работы.",
+            "differ": "От «Дачных с душем и туалетом» отличие: только умывальник и унитаз без душа, "
+                      "зато металл и вдвое толще утепление — для круглогодичной работы.",
             "kit": [
                 "Санузел (рукомойник и унитаз) с разводкой воды и выводом под канализацию — уже встроен",
                 "Утепление минватой 100 мм — вдвое толще, чем у обычного блок-контейнера",
@@ -635,17 +633,17 @@ body{{ font-family:var(--fb); color:var(--ink); -webkit-font-smoothing:antialias
 .p-idx{{ font-size:23px; color:var(--muted); }}
 
 .p-title{{ font-family:var(--fh); font-size:82px; font-weight:700; line-height:1.02;
-  letter-spacing:-.01em; margin:44px 0 0; color:var(--ink); }}
+  letter-spacing:-.01em; margin:34px 0 0; color:var(--ink); }}
 .p-title.small{{ font-size:60px; margin-top:36px; }}
 .p-sub{{ font-family:var(--fh); font-size:28px; color:var(--muted); margin-top:14px; }}
-.p-aud{{ font-size:26px; line-height:1.4; color:var(--muted); margin-top:22px; max-width:900px; }}
-.p-differ{{ font-size:24px; line-height:1.5; color:var(--muted); margin-top:20px; max-width:920px; }}
+.p-aud{{ font-size:26px; line-height:1.4; color:var(--muted); margin-top:18px; max-width:900px; }}
+.p-differ{{ font-size:24px; line-height:1.5; color:var(--muted); margin-top:14px; max-width:920px; }}
 
 .ph{{ background:#EDEFF2; border:1px solid var(--hair); display:flex; align-items:center;
   justify-content:center; text-align:center; }}
 .ph .lbl{{ font-family:var(--fm); font-size:20px; color:#9AA1AB; line-height:1.5; }}
-.p-photo{{ margin:40px auto 0; }}
-.p-thumbs{{ display:flex; gap:20px; justify-content:center; margin-top:20px; }}
+.p-photo{{ margin:28px auto 0; }}
+.p-thumbs{{ display:flex; gap:20px; justify-content:center; margin-top:16px; }}
 .p-spacer{{ flex:1; min-height:16px; }}
 
 .p-foot{{ border-top:1px solid var(--hair); padding-top:34px; }}
@@ -743,6 +741,7 @@ table.np-table td:first-child{{ width:70%; }}
 .final-phone{{ font-size:44px; margin-top:34px; }}
 .final-hours{{ font-size:22px; color:var(--muted); margin-top:10px; }}
 .final-cluster{{ margin-top:50px; transform:scale(1.15); }}
+.final-nav-up{{ margin-top:60px; }}
 
 @media print {{
   html,body{{ background:#fff; }}
@@ -1036,6 +1035,7 @@ function screenFinal() {
   html += `<div class="final-phone mono">${DATA.brand.phoneText}</div>`;
   html += `<div class="final-hours">${DATA.brand.hours}</div>`;
   html += '<div class="final-cluster">' + buttonCluster() + '</div>';
+  html += `<a class="nav-up final-nav-up" href="#navigator">${ICON_UP}<span>к навигатору</span></a>`;
   html += '</div>';
   html += '</div></section>';
   return html;
