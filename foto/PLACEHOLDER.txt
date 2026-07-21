@@ -1,0 +1,112 @@
+# Список фото для каталога
+
+# Формат: имя_файла  ширина×высота (px)
+# Кладите фото в эту папку foto/ под этими именами — вёрстка подхватит их автоматически.
+# Заглушки (серые прямоугольники с подписью) стоят в index.html, пока файлов нет.
+
+## Обложка
+hero-cover.jpg	960×820
+
+## 1. Дачные бытовки
+dacha-bytovki-main.jpg	960×820
+dacha-bytovki-1.jpg	320×320
+dacha-bytovki-2.jpg	320×320
+dacha-bytovki-3.jpg	320×320
+
+## 2. Дачные с душем и туалетом
+dush-tualet-main.jpg	960×820
+dush-tualet-1.jpg	320×320
+dush-tualet-2.jpg	320×320
+dush-tualet-3.jpg	320×320
+
+## 3. ЛОФТ
+loft-main.jpg	960×820
+loft-1.jpg	320×320
+loft-2.jpg	320×320
+loft-3.jpg	320×320
+
+## 4. Стыкованные дачные
+stykovannye-dachnye-main.jpg	960×820
+stykovannye-dachnye-1.jpg	320×320
+stykovannye-dachnye-2.jpg	320×320
+stykovannye-dachnye-3.jpg	320×320
+
+## 5. Металлические для дачи
+metall-dacha-main.jpg	960×820
+metall-dacha-1.jpg	320×320
+metall-dacha-2.jpg	320×320
+metall-dacha-3.jpg	320×320
+
+## 6. Бани
+bani-main.jpg	960×820
+bani-1.jpg	320×320
+bani-2.jpg	320×320
+bani-3.jpg	320×320
+
+## 7. Строительные бытовки
+stroy-bytovki-main.jpg	960×820
+stroy-bytovki-1.jpg	320×320
+stroy-bytovki-2.jpg	320×320
+stroy-bytovki-3.jpg	320×320
+
+## 8. Блок-контейнеры Стандарт
+bkt-standart-main.jpg	960×820
+bkt-standart-1.jpg	320×320
+bkt-standart-2.jpg	320×320
+bkt-standart-3.jpg	320×320
+
+## 9. Блок-контейнеры Усиленный
+bkt-usilenny-main.jpg	960×820
+bkt-usilenny-1.jpg	320×320
+bkt-usilenny-2.jpg	320×320
+bkt-usilenny-3.jpg	320×320
+
+## 10. Стыкованные блок-контейнеры
+stykovannye-bkt-main.jpg	960×820
+stykovannye-bkt-1.jpg	320×320
+stykovannye-bkt-2.jpg	320×320
+stykovannye-bkt-3.jpg	320×320
+
+## 11. Сушилка
+sushilka-main.jpg	960×820
+sushilka-1.jpg	320×320
+sushilka-2.jpg	320×320
+sushilka-3.jpg	320×320
+
+## 12. Сэндвич-панели
+sendvich-main.jpg	960×820
+sendvich-1.jpg	320×320
+sendvich-2.jpg	320×320
+sendvich-3.jpg	320×320
+
+## 13. С сантехническим отсеком
+santehotsek-main.jpg	960×820
+santehotsek-1.jpg	320×320
+santehotsek-2.jpg	320×320
+santehotsek-3.jpg	320×320
+
+## 14. Сантехнические модули
+santehmoduli-main.jpg	960×820
+santehmoduli-1.jpg	320×320
+santehmoduli-2.jpg	320×320
+santehmoduli-3.jpg	320×320
+
+## 15. Торговые павильоны
+torg-pavilony-main.jpg	960×820
+torg-pavilony-1.jpg	320×320
+torg-pavilony-2.jpg	320×320
+torg-pavilony-3.jpg	320×320
+
+## 16. Мобильные офисы
+mobilnye-ofisy-main.jpg	960×820
+mobilnye-ofisy-1.jpg	320×320
+mobilnye-ofisy-2.jpg	320×320
+mobilnye-ofisy-3.jpg	320×320
+
+## 17. Модульные здания
+modulnye-zdaniya-main.jpg	960×820
+modulnye-zdaniya-1.jpg	320×320
+modulnye-zdaniya-2.jpg	320×320
+modulnye-zdaniya-3.jpg	320×320
+
+# Всего файлов: 69 (1 обложка + 17 семейств × 4). Семейство 18 «Малые формы» — без фото, только таблица (один экран).
