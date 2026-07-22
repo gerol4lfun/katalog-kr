@@ -55,7 +55,7 @@ DATA = {
         "kicker": "Конструктивные решения",
         "title": "Готовые строения<br>под ключ",
         "sub": "Привезём собранным — поставим за день",
-        "photo": {"file": "hero-cover.jpg", "w": 960, "h": 820},
+        "photo": {"file": "hero-cover.jpg", "w": 936, "h": 702},
         "stat": "159 моделей · строения от 95 000 ₽",
     },
     "steps": [
@@ -639,11 +639,12 @@ body{{ font-family:var(--fb); color:var(--ink); -webkit-font-smoothing:antialias
 .p-aud{{ font-size:26px; line-height:1.4; color:var(--muted); margin-top:18px; max-width:900px; }}
 .p-differ{{ font-size:24px; line-height:1.5; color:var(--muted); margin-top:14px; max-width:920px; }}
 
+.photo-slot{{ position:relative; }}
 .ph{{ background:#EDEFF2; border:1px solid var(--hair); display:flex; align-items:center;
-  justify-content:center; text-align:center; }}
+  justify-content:center; text-align:center; box-sizing:border-box; }}
 .ph .lbl{{ font-family:var(--fm); font-size:20px; color:#9AA1AB; line-height:1.5; }}
 .p-photo{{ margin:28px auto 0; }}
-.p-thumbs{{ display:flex; gap:20px; justify-content:center; margin-top:16px; }}
+.p-thumbs{{ display:flex; gap:18px; justify-content:center; margin-top:16px; }}
 .p-spacer{{ flex:1; min-height:16px; }}
 
 .p-foot{{ border-top:1px solid var(--hair); padding-top:34px; }}
@@ -759,8 +760,16 @@ const ICON_UP = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 function fmtPrice(n) { return n.toLocaleString('ru-RU') + ' ₽'; }
 function esc(s) { return s; } // содержимое DATA доверенное (не пользовательский ввод)
 
-function photoPh(label, w, h) {
-  return `<div class="ph" style="width:${w}px;height:${h}px"><span class="lbl">${label}<br>${w} × ${h}</span></div>`;
+// Слот фото: пробует реальный файл foto/<file>, если его нет — серая заглушка с именем.
+// Работает и без пересборки: просто положите файл с этим именем в foto/.
+function photoPh(file, w, h) {
+  return `<div class="photo-slot" style="width:${w}px;height:${h}px">
+    <img src="foto/${file}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="ph" style="width:100%;height:100%;display:none;position:absolute;top:0;left:0">
+      <span class="lbl">${file}<br>${w} × ${h}</span>
+    </div>
+  </div>`;
 }
 
 function buttonCluster() {
@@ -823,9 +832,9 @@ function familyVisual(fam) {
   html += headerBlock(fam.accent, fam.num);
   html += `<div class="p-title">${fam.name}</div>`;
   html += `<div class="p-aud">Кому подходит: ${fam.audience}</div>`;
-  html += `<div class="p-photo">${photoPh(`${s}-main.jpg`, 960, 820)}</div>`;
+  html += `<div class="p-photo">${photoPh(`${s}-main.jpg`, 936, 702)}</div>`;
   html += '<div class="p-thumbs">';
-  for (const i of [1,2,3]) html += photoPh(`${s}-${i}.jpg`, 320, 320);
+  for (const i of [1,2,3]) html += photoPh(`${s}-${i}.jpg`, 300, 300);
   html += '</div>';
   html += `<div class="p-differ">${fam.differ}</div>`;
   html += '<div class="p-spacer"></div>';
