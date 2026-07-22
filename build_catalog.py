@@ -11,6 +11,8 @@ import json
 # на его ключ ниже и запустите скрипт заново — вёрстку трогать не нужно.
 # Чтобы добавить второго менеджера: скопируйте блок "yuliya", впишите свои данные под новым
 # ключом (например "ivan") и переключите ACTIVE_MANAGER на этот ключ.
+# Чтобы собрать версию совсем без карточки менеджера (только телефон/часы/кнопки на финальном
+# экране) — поставьте ACTIVE_MANAGER = None. Вёрстку трогать тоже не нужно, блок сам не рисуется.
 MANAGERS = {
     "yuliya": {"name": "Юлия", "photo": "manager-yuliya.jpg", "role": "Ваш менеджер"},
 }
@@ -18,7 +20,7 @@ ACTIVE_MANAGER = "yuliya"
 
 # ── DATA (владелец редактирует только это) ─────────────────────────────
 DATA = {
-    "manager": MANAGERS[ACTIVE_MANAGER],
+    "manager": MANAGERS[ACTIVE_MANAGER] if ACTIVE_MANAGER else None,
     "brand": {
         "phoneTel": "tel:+74950855990",
         "phoneText": "+7 (495) 085-59-90",
@@ -1188,9 +1190,11 @@ function screenFinal() {
   html += headerBlock(null);
   html += '<div class="final-center">';
   html += `<div class="final-title">${DATA.finalScreen.title}</div>`;
-  html += `<div class="final-manager-photo">${photoPh(m.photo, 140, 140)}</div>`;
-  html += `<div class="final-manager-role">${m.role}</div>`;
-  html += `<div class="final-manager-name">${m.name}</div>`;
+  if (m) {
+    html += `<div class="final-manager-photo">${photoPh(m.photo, 140, 140)}</div>`;
+    html += `<div class="final-manager-role">${m.role}</div>`;
+    html += `<div class="final-manager-name">${m.name}</div>`;
+  }
   html += `<div class="final-phone mono">${DATA.brand.phoneText}</div>`;
   html += `<div class="final-hours">${DATA.brand.hours}</div>`;
   html += '<div class="final-cluster">' + buttonCluster() + '</div>';

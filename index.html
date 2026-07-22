@@ -514,9 +514,11 @@ function screenFinal() {
   html += headerBlock(null);
   html += '<div class="final-center">';
   html += `<div class="final-title">${DATA.finalScreen.title}</div>`;
-  html += `<div class="final-manager-photo">${photoPh(m.photo, 140, 140)}</div>`;
-  html += `<div class="final-manager-role">${m.role}</div>`;
-  html += `<div class="final-manager-name">${m.name}</div>`;
+  if (m) {
+    html += `<div class="final-manager-photo">${photoPh(m.photo, 140, 140)}</div>`;
+    html += `<div class="final-manager-role">${m.role}</div>`;
+    html += `<div class="final-manager-name">${m.name}</div>`;
+  }
   html += `<div class="final-phone mono">${DATA.brand.phoneText}</div>`;
   html += `<div class="final-hours">${DATA.brand.hours}</div>`;
   html += '<div class="final-cluster">' + buttonCluster() + '</div>';
