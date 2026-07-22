@@ -7,8 +7,18 @@
 """
 import json
 
+# ── Менеджеры: чтобы собрать каталог под другого человека, поменяйте ACTIVE_MANAGER
+# на его ключ ниже и запустите скрипт заново — вёрстку трогать не нужно.
+# Чтобы добавить второго менеджера: скопируйте блок "yuliya", впишите свои данные под новым
+# ключом (например "ivan") и переключите ACTIVE_MANAGER на этот ключ.
+MANAGERS = {
+    "yuliya": {"name": "Юлия", "photo": "manager-yuliya.jpg", "role": "Ваш менеджер"},
+}
+ACTIVE_MANAGER = "yuliya"
+
 # ── DATA (владелец редактирует только это) ─────────────────────────────
 DATA = {
+    "manager": MANAGERS[ACTIVE_MANAGER],
     "brand": {
         "phoneTel": "tel:+74950855990",
         "phoneText": "+7 (495) 085-59-90",
@@ -194,6 +204,15 @@ DATA = {
         ["Сколько ждать?", "10 рабочих дней плюс доставка."],
         ["Как оформляется оплата?", "Официально по договору. Любые удобные способы оплаты — "
          "условия обсуждаем при расчёте."],
+        ["Можно ли жить зимой?", "Базовое утепление 50 мм рассчитано на сезон — с весны до "
+         "поздней осени. Для круглогодичного проживания ставим 100 мм, посчитаем при заказе."],
+        ["А если к участку не подъехать манипулятору?", "Расскажите про подъезд при расчёте — "
+         "подберём технику или предложим решение под ваш участок."],
+        ["Можно ли потом перевезти на другой участок?", "Да. Строение не капитальное, стоит на "
+         "блоках. Металлические переезжают особенно легко — сварной каркас держит многократные "
+         "перевозки."],
+        ["Что если при приёмке что-то не понравится?", "Вы принимаете строение при разгрузке. "
+         "Замечания фиксируем актом и устраняем по гарантии."],
     ],
     "finalScreen": {
         "title": "Подберём под задачу и бюджет",
@@ -752,11 +771,14 @@ table.data-table td.price{{ font-size:19px; white-space:nowrap; padding-left:14p
 .step-note{{ margin-top:44px; font-size:22px; color:var(--muted); border-top:1px solid var(--hair);
   padding-top:26px; }}
 
-.nav-table{{ margin-top:26px; border-collapse:collapse; width:100%; }}
+.nav-hint{{ font-size:18px; color:var(--muted); margin-top:22px; }}
+.nav-table{{ margin-top:14px; border-collapse:collapse; width:100%; }}
 .nav-table td{{ padding:16px 4px; border-bottom:1px solid var(--hair); font-size:22px; }}
 .nav-table td:first-child{{ color:var(--ink); }}
-.nav-table td:last-child{{ text-align:right; }}
+.nav-table td.nav-target{{ text-align:right; width:1%; white-space:nowrap; }}
+.nav-table td.nav-arrow{{ text-align:right; width:36px; padding-left:14px; }}
 .nav-table a{{ color:var(--primary); text-decoration:none; font-weight:700; }}
+.nav-table td.nav-arrow a{{ color:var(--muted); font-weight:400; font-size:22px; }}
 
 .two-col{{ display:flex; gap:50px; margin-top:40px; }}
 .col{{ flex:1; }}
@@ -809,6 +831,10 @@ table.np-table td:first-child{{ width:70%; }}
 .final-center{{ flex:1; display:flex; flex-direction:column; align-items:center;
   justify-content:center; text-align:center; }}
 .final-title{{ font-family:var(--fh); font-size:60px; font-weight:700; max-width:820px; }}
+.final-manager-photo{{ margin-top:44px; }}
+.final-manager-photo .photo-slot, .final-manager-photo .ph, .final-manager-photo img{{ border-radius:50%; }}
+.final-manager-role{{ font-size:17px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:18px; }}
+.final-manager-name{{ font-family:var(--fh); font-size:32px; font-weight:700; margin-top:6px; }}
 .final-phone{{ font-size:44px; margin-top:34px; }}
 .final-hours{{ font-size:22px; color:var(--muted); margin-top:10px; }}
 .final-cluster{{ margin-top:50px; transform:scale(1.15); }}
@@ -1015,9 +1041,10 @@ function screenNavigator() {
   html += headerBlock(null);
   html += '<div class="p-title small">Навигатор</div>';
   html += '<div class="p-sub">Мне нужно… → откройте раздел</div>';
+  html += '<div class="nav-hint">Нажмите на нужную строку — откроется раздел с моделями и ценами</div>';
   html += '<table class="nav-table"><tbody>';
   for (const [need, famNum] of DATA.navRows) {
-    html += `<tr><td>${need}</td><td><a href="#fam-${famNum}-visual">${DATA.famNames[famNum]} →</a></td></tr>`;
+    html += `<tr><td>${need}</td><td class="nav-target"><a href="#fam-${famNum}-visual">${DATA.famNames[famNum]}</a></td><td class="nav-arrow"><a href="#fam-${famNum}-visual">→</a></td></tr>`;
   }
   html += '</tbody></table>';
   html += '<div class="p-spacer"></div>';
@@ -1155,10 +1182,14 @@ function screenFaq() {
 }
 
 function screenFinal() {
+  const m = DATA.manager;
   let html = '<section class="screen" id="final"><div class="p-pad">';
   html += headerBlock(null);
   html += '<div class="final-center">';
   html += `<div class="final-title">${DATA.finalScreen.title}</div>`;
+  html += `<div class="final-manager-photo">${photoPh(m.photo, 140, 140)}</div>`;
+  html += `<div class="final-manager-role">${m.role}</div>`;
+  html += `<div class="final-manager-name">${m.name}</div>`;
   html += `<div class="final-phone mono">${DATA.brand.phoneText}</div>`;
   html += `<div class="final-hours">${DATA.brand.hours}</div>`;
   html += '<div class="final-cluster">' + buttonCluster() + '</div>';
