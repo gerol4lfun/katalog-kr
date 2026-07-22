@@ -111,22 +111,69 @@ DATA = {
         {"accent": "small", "title": "Малые формы",
          "tagline": "Беседки, будки, туалет и мелочи для двора — по мелочи, но по делу."},
     ],
-    "madeOfWood": [
-        "Каркас — брус 150×100 мм на основании, перегородки — брусок 50×50 мм",
-        "Утепление — минеральная вата 50 мм",
-        "Обшивка — вагонка хвои класса А/В внутри в жилых семействах (ДВП — в рабочих строительных "
-        "бытовках), снаружи вагонка или оцинкованный профлист на выбор",
-        "Пол — черновая доска обрезная с утеплением, чистовой пол по модели",
-        "Кровля — оцинкованный лист, фальцевое соединение",
-    ],
-    "madeOfMetal": [
-        "Каркас — сварной металл: швеллер, уголок или брусок 50×50 мм (40×100 мм в усиленных моделях)",
-        "Утепление — минеральная вата 50–100 мм в зависимости от семейства",
-        "Обшивка — ДВП, МДФ/ПВХ или вагонка внутри на выбор; снаружи профлист или вагонка",
-        "Пол — доска обрезная, в санитарных моделях — гидроизоляция под линолеум",
-        "Кровля — двускатная из оцинкованного листа 0,4 мм (Стандарт) или усиленная плоская из листа "
-        "0,8 мм на гидроизоляционной мастике (Усиленный, держит нагрузку 2 этажей)",
-    ],
+    "wallLayers": {
+        "wood": {
+            "frame": "Каркас — брус 150×100 мм (основание), брусок 50×50 мм (стойки)",
+            "layers": [
+                ["Наружная обшивка", "вагонка класса А/В или оцинкованный профлист — первый барьер от дождя и ветра"],
+                ["Ветрозащитная плёнка", "чтобы сквозняк не выдувал тепло сквозь утеплитель"],
+                ["Утеплитель", "минвата 50 мм — держит тепло весной и осенью; 100 мм — для круглогодичного проживания"],
+                ["Пароизоляция", "чтобы влага изнутри не садилась в утеплитель"],
+                ["Внутренняя отделка", "вагонка класса А/В — без выпадающих сучков и щелей; ДВП — практичнее для рабочих задач"],
+            ],
+        },
+        "metal": {
+            "frame": "Каркас — сварной, швеллер 100×50×3 мм и уголок 75×75×5 мм",
+            "layers": [
+                ["Наружная обшивка", "профлист или вагонка — первый барьер от дождя и ветра"],
+                ["Ветрозащитная плёнка", "чтобы сквозняк не выдувал тепло сквозь утеплитель"],
+                ["Утеплитель", "минвата 50 мм — держит тепло; 100 мм — в санитарных моделях и для круглогодичной работы"],
+                ["Пароизоляция", "чтобы влага изнутри не садилась в утеплитель"],
+                ["Внутренняя отделка", "вагонка, ДВП или МДФ/ПВХ на выбор"],
+            ],
+        },
+    },
+    "wallBottomLine": "Каждый слой делает свою работу. Уберите один — перестанет работать вся стена.",
+    "assembly": {
+        "title": "Как собирают ваше строение",
+        "sub": "Десять рабочих дней от заказа до отгрузки",
+        "steps": [
+            ["Раскрой и подготовка",
+             "Пиломатериал режут по вашему размеру: основание из бруса 150×100 мм, лаги 100×50 мм, "
+             "каркас 50×50 мм. Металлические собирают на сварном каркасе из швеллера 100×50×3 мм и "
+             "уголка 75×75×5 мм."],
+            ["Сборка каркаса",
+             "Основание, стойки, обвязка. У металлических — сварка сплошным швом, у деревянных — "
+             "брусовая обвязка на всю длину."],
+            ["Контур и утепление",
+             "Ветрозащита, минеральная вата по полу, стенам и потолку, пароизоляция изнутри. Каждый "
+             "слой закрывают до следующего, а не в конце."],
+            ["Обшивка",
+             "Снаружи вагонка класса А/В или оцинкованный профлист, внутри вагонка или ДВП по вашей "
+             "комплектации. Кровля из оцинкованного листа фальцевым соединением."],
+            ["Окна, двери, электрика",
+             "Ставят на месте сборки, а не на вашем участке. У ЛОФТов электрику разводят полностью: "
+             "розетки, светильники, автомат в боксе."],
+            ["Проверка перед отгрузкой",
+             "Геометрия, двери и окна на открывание, стыки обшивки. Строение уезжает собранным и "
+             "проверенным."],
+        ],
+        "bottomLine": "Всё это происходит в цеху. На вашем участке остаётся один день — привезти и "
+                      "поставить на блоки.",
+    },
+    "whatYouGet": {
+        "title": "Что вы получите на руки",
+        "items": [
+            ["Договор", "С реквизитами и печатью. В нём зафиксированы размер, комплектация, цена и "
+             "срок — до копейки и до дня."],
+            ["Спецификация", "Полный перечень того, что входит в вашу комплектацию. Чтобы при "
+             "приёмке было с чем сверять."],
+            ["Гарантийный талон", "12 месяцев на изделие."],
+            ["Акт приёмки", "Подписываете при разгрузке. Замечания фиксируются в нём и устраняются "
+             "по гарантии."],
+        ],
+        "bottomLine": "Всё зафиксировано на бумаге: что везём, за сколько и в какой срок.",
+    },
     "delivery": [
         "Привозим манипулятором в собранном виде.",
         "Ставим на фундаментные блоки — они входят в комплект.",
@@ -734,6 +781,27 @@ table.np-table td:first-child{{ width:70%; }}
 
 .madeof-list li{{ font-size:22px; }}
 
+.wall-grid{{ display:flex; gap:56px; margin-top:34px; }}
+.wall-col{{ flex:1; }}
+.wall-frame{{ font-family:var(--fh); font-size:22px; font-weight:700; color:var(--ink);
+  padding-bottom:16px; border-bottom:2px solid var(--ink); }}
+.wall-layers{{ display:flex; flex-direction:column; }}
+.wall-layer{{ padding:18px 0; border-bottom:1px solid var(--hair); }}
+.wall-layer-label{{ font-family:var(--fb); font-weight:700; font-size:19px; color:var(--ink); }}
+.wall-layer-why{{ font-size:17px; line-height:1.4; color:var(--muted); margin-top:4px; }}
+.wall-bottom{{ margin-top:32px; padding-top:22px; border-top:1px solid var(--hair); font-size:19px; }}
+
+.assembly-steps{{ margin-top:30px; display:flex; flex-direction:column; gap:22px; }}
+.assembly-step{{ display:flex; gap:24px; align-items:flex-start; }}
+.assembly-num{{ font-size:20px; color:var(--muted); flex-shrink:0; width:32px; }}
+.assembly-title{{ font-family:var(--fh); font-size:23px; font-weight:700; }}
+.assembly-text{{ font-size:19px; line-height:1.45; color:var(--muted); margin-top:4px; max-width:820px; }}
+
+.docs-list{{ margin-top:30px; display:flex; flex-direction:column; }}
+.docs-item{{ padding:22px 0; border-bottom:1px solid var(--hair); }}
+.docs-title{{ font-family:var(--fh); font-size:26px; font-weight:700; }}
+.docs-text{{ font-size:20px; line-height:1.45; color:var(--muted); margin-top:6px; max-width:860px; }}
+
 .faq-list{{ margin-top:30px; display:flex; flex-direction:column; gap:26px; }}
 .faq-q{{ font-family:var(--fh); font-size:26px; font-weight:700; }}
 .faq-a{{ font-size:22px; color:var(--muted); margin-top:8px; line-height:1.4; }}
@@ -988,11 +1056,58 @@ function screenWeArePricier() {
   return html;
 }
 
-function screenMadeOf(id, title, items) {
-  let html = `<section class="screen" id="${id}"><div class="p-pad">`;
+function wallColumn(col) {
+  let html = `<div class="wall-col"><div class="wall-frame">${col.frame}</div>`;
+  html += '<div class="wall-layers">';
+  for (const [label, why] of col.layers) {
+    html += `<div class="wall-layer"><div class="wall-layer-label">${label}</div><div class="wall-layer-why">${why}</div></div>`;
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function screenWallLayers() {
+  let html = '<section class="screen" id="stena"><div class="p-pad">';
   html += headerBlock(null);
-  html += `<div class="p-title small">${title}</div>`;
-  html += '<ul class="kit-list madeof-list">' + items.map(k => `<li>${k}</li>`).join('') + '</ul>';
+  html += '<div class="p-title small">Как устроена стена</div>';
+  html += '<div class="wall-grid">' + wallColumn(DATA.wallLayers.wood) + wallColumn(DATA.wallLayers.metal) + '</div>';
+  html += `<div class="dop-line wall-bottom">${DATA.wallBottomLine}</div>`;
+  html += '<div class="p-spacer"></div>';
+  html += footerBlock();
+  html += '</div></section>';
+  return html;
+}
+
+function screenAssembly() {
+  const a = DATA.assembly;
+  let html = '<section class="screen" id="sborka"><div class="p-pad">';
+  html += headerBlock(null);
+  html += `<div class="p-title small">${a.title}</div>`;
+  html += `<div class="p-sub">${a.sub}</div>`;
+  html += '<div class="assembly-steps">';
+  a.steps.forEach(([title, text], i) => {
+    html += `<div class="assembly-step"><div class="assembly-num mono">${String(i+1).padStart(2,'0')}</div>
+      <div><div class="assembly-title">${title}</div><div class="assembly-text">${text}</div></div></div>`;
+  });
+  html += '</div>';
+  html += `<div class="dop-line wall-bottom">${a.bottomLine}</div>`;
+  html += '<div class="p-spacer"></div>';
+  html += footerBlock();
+  html += '</div></section>';
+  return html;
+}
+
+function screenWhatYouGet() {
+  const w = DATA.whatYouGet;
+  let html = '<section class="screen" id="poluchite"><div class="p-pad">';
+  html += headerBlock(null);
+  html += `<div class="p-title small">${w.title}</div>`;
+  html += '<div class="docs-list">';
+  for (const [title, text] of w.items) {
+    html += `<div class="docs-item"><div class="docs-title">${title}</div><div class="docs-text">${text}</div></div>`;
+  }
+  html += '</div>';
+  html += `<div class="dop-line wall-bottom">${w.bottomLine}</div>`;
   html += '<div class="p-spacer"></div>';
   html += footerBlock();
   html += '</div></section>';
@@ -1076,9 +1191,10 @@ function buildAllScreens() {
       }
     }
   }
-  parts.push({id:'izchego-derevo', html: screenMadeOf('izchego-derevo', 'Из чего сделано — деревянные', DATA.madeOfWood)});
-  parts.push({id:'izchego-metall', html: screenMadeOf('izchego-metall', 'Из чего сделано — металлические', DATA.madeOfMetal)});
+  parts.push({id:'stena', html: screenWallLayers()});
+  parts.push({id:'sborka', html: screenAssembly()});
   parts.push({id:'dostavka', html: screenDelivery()});
+  parts.push({id:'poluchite', html: screenWhatYouGet()});
   parts.push({id:'pokupka', html: screenPurchase()});
   parts.push({id:'faq', html: screenFaq()});
   parts.push({id:'final', html: screenFinal()});
