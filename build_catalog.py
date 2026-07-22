@@ -1254,7 +1254,7 @@ const DATA = {json.dumps(DATA, ensure_ascii=False)};
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
     n_fam = sum(1 if f.get("singleScreen") else 2 for f in DATA["families"])
-    n = 5 + len(DATA["dividers"]) + n_fam + 6  # +6 закрывающих экранов
+    n = 5 + len(DATA["dividers"]) + n_fam + 7  # +7 закрывающих экранов (стена/сборка/доставка/получите/покупка/faq/финал)
     print(f"OK: index.html — {n} экранов, DATA-driven")
 
 
